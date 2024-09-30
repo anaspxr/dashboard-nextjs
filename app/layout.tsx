@@ -1,5 +1,6 @@
 import "@/app/ui/global.css";
 import { inter } from "@/app/ui/fonts";
+import { ThemeProvider } from "next-themes";
 
 export default function RootLayout({
   children,
@@ -7,8 +8,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+    <html suppressHydrationWarning lang="en">
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider attribute="class">{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
